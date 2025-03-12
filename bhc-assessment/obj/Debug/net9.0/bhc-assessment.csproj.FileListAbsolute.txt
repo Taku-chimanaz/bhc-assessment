@@ -1,0 +1,14 @@
+D:\grind\csharp\bhc-assessment\bhc-assessment\bin\Debug\net9.0\bhc-assessment.exe
+D:\grind\csharp\bhc-assessment\bhc-assessment\bin\Debug\net9.0\bhc-assessment.deps.json
+D:\grind\csharp\bhc-assessment\bhc-assessment\bin\Debug\net9.0\bhc-assessment.runtimeconfig.json
+D:\grind\csharp\bhc-assessment\bhc-assessment\bin\Debug\net9.0\bhc-assessment.dll
+D:\grind\csharp\bhc-assessment\bhc-assessment\bin\Debug\net9.0\bhc-assessment.pdb
+D:\grind\csharp\bhc-assessment\bhc-assessment\obj\Debug\net9.0\bhc-assessment.GeneratedMSBuildEditorConfig.editorconfig
+D:\grind\csharp\bhc-assessment\bhc-assessment\obj\Debug\net9.0\bhc-assessment.AssemblyInfoInputs.cache
+D:\grind\csharp\bhc-assessment\bhc-assessment\obj\Debug\net9.0\bhc-assessment.AssemblyInfo.cs
+D:\grind\csharp\bhc-assessment\bhc-assessment\obj\Debug\net9.0\bhc-assessment.csproj.CoreCompileInputs.cache
+D:\grind\csharp\bhc-assessment\bhc-assessment\obj\Debug\net9.0\bhc-assessment.dll
+D:\grind\csharp\bhc-assessment\bhc-assessment\obj\Debug\net9.0\refint\bhc-assessment.dll
+D:\grind\csharp\bhc-assessment\bhc-assessment\obj\Debug\net9.0\bhc-assessment.pdb
+D:\grind\csharp\bhc-assessment\bhc-assessment\obj\Debug\net9.0\bhc-assessment.genruntimeconfig.cache
+D:\grind\csharp\bhc-assessment\bhc-assessment\obj\Debug\net9.0\ref\bhc-assessment.dll
