@@ -1,12 +1,13 @@
 
-class Warehouse {
+class Warehouse(string name, double maxCapacity)
+{
 
-    private string name;
-    private double maxCapacity; // in kgs
+    private string name = name;
+    private double maxCapacity = maxCapacity; // in kgs
     
-    private Line[] lines = [];
+    public Line[] lines = [];
 
-    private Rack[] racks = [];
+    public Rack[] racks = [];
 
 
     //========== Methods =============
@@ -41,7 +42,7 @@ class Warehouse {
         Console.WriteLine($"This is a record of all Racks in {name} warehouse"); // records can be pulled from a db on a more complex solution
         foreach (Rack rack in racks)
         {
-            Console.WriteLine($"{rack.RackNumber}");
+            Console.WriteLine($"{rack.RackSerialNumber}");
         }
     }
 
@@ -54,6 +55,7 @@ class Warehouse {
     }
 
     public void GetPackagesRecord(){
+        
         // getting current packages stored in racks of the warehouse and lines
         // record ever placed can be managed by a db.
 
@@ -76,18 +78,107 @@ class Warehouse {
 
         foreach (Rack rack in racks)
         {
-            Console.WriteLine($"{rack.RackNumber} packages");
+            Console.WriteLine($"{rack.RackSerialNumber} packages");
             for(int i = 0; i < rack.rackPackages.Length; i++){
                 Console.WriteLine($"Serial Number: {rack.rackPackages[i].SerialNumber}");
             }
 
-            Console.WriteLine($"{rack.RackNumber} pallets");
+            Console.WriteLine($"{rack.RackSerialNumber} pallets");
             for(int i = 0; i < rack.rackPallets.Length; i++){
                 Console.WriteLine($"Serial Number: {rack.rackPallets[i].SerialNumber}");
             }
 
             Console.WriteLine("=============================================");
         }
+    }
+
+
+    public string WarehouseSnapshoot() {
+
+        string snapshop = @$"
+            Name: {name}
+            No of Racks: {racks.Length}
+            No of Lines: {lines.Length}
+            Total Lines Capacity: {WarehouseUtils.CalculateTotalLinesCurrentWeight(lines)}
+            Total Racks Capacity: {WarehouseUtils.CalculateTotalRackCurrentWeight(racks)}
+        ";
+
+        return snapshop;
+    }
+
+    public string SearchForRackBySerialNumber(string serialNumber){
+
+        bool isRackAvailable = false;
+        Rack? foundRack = null;
+
+        foreach (Rack rack in racks)
+        {
+            if(rack.RackSerialNumber == serialNumber){
+                isRackAvailable = true;
+                foundRack = rack;
+                break;
+            }
+        }
+
+        if(isRackAvailable){
+            return $"Rack found in {name} warehouse.\n{foundRack?.rackPackages.Length} packages\n{foundRack?.rackPallets.Length} pallets";
+        }else {
+            return $"Rack not found";
+        }
+    }
+
+    public string SearchForPackageBySerialNumber(string serialNumber){
+
+        bool isPackageAvailable = false;
+        string? location = null;
+
+        foreach (Line line in lines)
+        {
+
+            if(isPackageAvailable){
+                break;
+            }
+
+            foreach (Package package in line.linePackages)
+            {
+                if(package.SerialNumber == serialNumber){
+                    isPackageAvailable = true;
+                    location = $"Line - {line.LineNumber}";
+                    break;
+                }
+            }
+
+        }
+
+        // if not found in lines look in racks
+
+        if(!isPackageAvailable){
+
+            foreach (Rack rack in racks)
+            {   
+
+                if(isPackageAvailable){
+                    break;
+                }
+
+                foreach (Package package in rack.rackPackages)
+                {
+                    if(package.SerialNumber == serialNumber){
+                        isPackageAvailable = true;
+                        location = $"Rack - {rack.RackSerialNumber}";
+                        break;
+                    }
+                }
+            }
+        }
+
+
+        if(isPackageAvailable){
+            return $"Package found in warehouse {name}.Found in {location}";
+        }else {
+            return $"Package not found";
+        }
+
     }
 
     // Properties

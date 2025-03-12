@@ -30,5 +30,5 @@ static class WarehouseUtils {
         }
 
         return weight;
-    }   
+    }
 }

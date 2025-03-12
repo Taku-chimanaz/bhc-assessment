@@ -1,7 +1,7 @@
-class Rack(int rackNumber, double rackCapacity)
+class Rack(string rackSerialNumber, double rackCapacity)
 {
 
-    private int rackNumber = rackNumber;
+    private string rackSerialNumber = rackSerialNumber;
 
     private double rackCapacity = rackCapacity;
 
@@ -101,13 +101,13 @@ class Rack(int rackNumber, double rackCapacity)
     // Properties
 
 
-    public int RackNumber {
+    public string RackSerialNumber {
         get {
-            return rackNumber;
+            return rackSerialNumber;
         }
 
         set {
-            rackNumber = value;
+            rackSerialNumber = value;
         }
     }
 
